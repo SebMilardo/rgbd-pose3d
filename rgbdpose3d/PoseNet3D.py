@@ -9,12 +9,12 @@ import numpy as np
 import cv2
 import scipy.ndimage as ndimage
 
-from utils.VoxelizationUtil import VoxelizationUtil as vu
-from utils.Camera import *
-from utils.paf_utils import *
+from rgbdpose3d.utils.VoxelizationUtil import VoxelizationUtil as vu
+from rgbdpose3d.utils.Camera import *
+from rgbdpose3d.utils.paf_utils import *
 
-from nets.VoxelPoseNet import *
-from nets.OpenPoseCoco import *
+from rgbdpose3d.nets.VoxelPoseNet import *
+from rgbdpose3d.nets.OpenPoseCoco import *
 
 
 class PoseNet3D(object):

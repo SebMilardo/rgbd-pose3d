@@ -3,8 +3,8 @@ import scipy.misc
 import numpy as np
 import matplotlib.pyplot as plt
 
-from PoseNet3D import *
-from utils.Camera import *
+from rgbdpose3d import *
+from rgbdpose3d.utils.Camera import *
 
 # VALUES YOU MIGHT WANT TO CHANGE
 OPE_DEPTH = 1  # in [1, 5]; Number of stages for the 2D network. Smaller number makes the network faster but less accurate
