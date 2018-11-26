@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/SebMilardo/rgbd-pose3d",
-    packages=setuptools.find_packages(),
+    packages=['rgbdpose3d', 'rgbdpose3d.nets','rgbdpose3d.utils'],,
     classifiers=[
         "Programming Language :: Python :: 2",
         "License :: OSI Approved :: MIT License",
