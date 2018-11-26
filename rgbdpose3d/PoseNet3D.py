@@ -18,7 +18,7 @@ from rgbdpose3d.nets.OpenPoseCoco import *
 
 
 class PoseNet3D(object):
-    def __init__(self, ope_depth=5, gpu_id=0, gpu_memory_limit=None, vpn_type=None, K=None):
+    def __init__(self, ope_depth=5, gpu_id=0, gpu_memory_limit=None, vpn_type=None, K=None, data_path="./"):
         self._session = None  # tensorflow session
         self._image = None  # input to the 2D network
         self._scoremaps_kp = None  # output of the 2D network
@@ -29,6 +29,7 @@ class PoseNet3D(object):
         self._voxel_scale = None  # input to the 3D network
         self._cam_mat = None  # input to the 3D network
         self._kp_vox = None  # output of the 3D network
+        self._data_path = data_path # default folder for weights
 
         # parameters
         self._intermediate_scoremap_size = (100, 100)  # map size used for warping 2D->3D
@@ -219,7 +220,7 @@ class PoseNet3D(object):
                     name_dict['Mconv%d_stage%d_%s' % (rep_id, stage_id, type_old)] = 'conv%d_%d_%s' % (stage_id + 4, rep_id, type_new)
 
         weight_dict = dict()
-        with open('./weights/openpose-coco.pkl', 'rb') as fi:
+        with open(self._data_path+'weights/openpose-coco.pkl', 'rb') as fi:
             if sys.version_info[0] == 3:
                 weight_dict_raw = pickle.load(fi, encoding='latin1')  # for python3
             else:
@@ -240,9 +241,9 @@ class PoseNet3D(object):
     def _init_voxelposenet(self):
         """ Initializes the VoxelPoseNet from a snapshot. """
         if self.use_fast_vpn:
-            checkpoint_path = './weights/snapshots_pose_run194/'
+            checkpoint_path = self._data_path+'weights/snapshots_pose_run194/'
         else:
-            checkpoint_path = './weights/snapshots_pose_run191/'
+            checkpoint_path = self._data_path+'weights/snapshots_pose_run191/'
         rename_dict = {}
         discard_list = ['Adam', 'global_step', 'beta']
         self._load_all_variables_from_snapshot(checkpoint_path, rename_dict, discard_list)
