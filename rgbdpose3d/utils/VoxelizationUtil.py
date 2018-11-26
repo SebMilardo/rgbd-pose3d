@@ -1,7 +1,7 @@
 import numpy as np
 from collections import namedtuple
 
-from utils.Camera import Camera
+from rgbdpose3d.utils.Camera import Camera
 
 VoxelTrafoParamsNew = namedtuple('VoxelTrafoParamsNew', ['voxel_root', 'voxel_scale'])
 

@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-from utils import NetworkOps
+from rgbdpose3d.utils import NetworkOps
 
 """
     Network for person keypoint detection based on color information

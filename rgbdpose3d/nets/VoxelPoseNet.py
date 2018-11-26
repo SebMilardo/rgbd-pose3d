@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-from utils import NetworkOps
+from rgbdpose3d.utils import NetworkOps
 
 """
     Network for estimating a 3D skeleton from voxelized depth maps.
