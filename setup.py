@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="rgbd-pose3d",
+    name="rgbd_pose3d",
     version="0.0.1",
     author="Sebastiano Milardo",
     author_email="milardo@mit.edu",
